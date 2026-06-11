@@ -1,28 +1,38 @@
-document.addEventListener("DOMContentLoaded", function () {
+const recipeInput = document.getElementById("recipeName");
+const addBtn = document.getElementById("addRecipeBtn");
+const recipeList = document.getElementById("recipeList");
 
-    const recipeInput = document.getElementById("recipeName");
-    const addBtn = document.getElementById("addRecipeBtn");
-    const recipeList = document.getElementById("recipeList");
+let recipes = [];
 
-    let recipes = [];
+addBtn.addEventListener("click", function () {
+    const name = recipeInput.value.trim();
+    if (name === "") return;
 
-    addBtn.addEventListener("click", function () {
-        const name = recipeInput.value.trim();
-        if (name === "") return;
+    recipes.push(name);
+    recipeInput.value = "";
 
-        recipes.push(name);
-        renderRecipes();
-        recipeInput.value = "";
-    });
-
-    function renderRecipes() {
-        recipeList.innerHTML = "";
-
-        recipes.forEach(function (recipe) {
-            const li = document.createElement("li");
-            li.textContent = recipe;
-            recipeList.appendChild(li);
-        });
-    }
-
+    renderRecipes();
 });
+
+function renderRecipes() {
+    recipeList.innerHTML = "";
+
+    recipes.forEach(function (recipe, index) {
+        const li = document.createElement("li");
+
+        const text = document.createElement("span");
+        text.textContent = recipe;
+
+        const del = document.createElement("button");
+        del.textContent = "Delete";
+
+        del.addEventListener("click", function () {
+            recipes.splice(index, 1);
+            renderRecipes();
+        });
+
+        li.appendChild(text);
+        li.appendChild(del);
+        recipeList.appendChild(li);
+    });
+}
