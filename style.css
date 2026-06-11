@@ -125,3 +125,24 @@ li {
     width: 80px;
     margin-bottom: 0;
 }
+#recipeList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#recipeList button {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#recipeList button:hover {
+    background: #c62828;
+}
