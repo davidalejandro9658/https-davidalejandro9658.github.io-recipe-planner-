@@ -1,38 +1,42 @@
-const recipeInput = document.getElementById("recipeName");
-const addBtn = document.getElementById("addRecipeBtn");
-const recipeList = document.getElementById("recipeList");
+document.addEventListener("DOMContentLoaded", function () {
 
-let recipes = [];
+    const recipeInput = document.getElementById("recipeName");
+    const addBtn = document.getElementById("addRecipeBtn");
+    const recipeList = document.getElementById("recipeList");
 
-addBtn.addEventListener("click", function () {
-    const name = recipeInput.value.trim();
-    if (name === "") return;
+    let recipes = [];
 
-    recipes.push(name);
-    recipeInput.value = "";
+    addBtn.addEventListener("click", function () {
+        const name = recipeInput.value.trim();
+        if (name === "") return;
 
-    renderRecipes();
-});
+        recipes.push(name);
+        recipeInput.value = "";
 
-function renderRecipes() {
-    recipeList.innerHTML = "";
-
-    recipes.forEach(function (recipe, index) {
-        const li = document.createElement("li");
-
-        const text = document.createElement("span");
-        text.textContent = recipe;
-
-        const del = document.createElement("button");
-        del.textContent = "Delete";
-
-        del.addEventListener("click", function () {
-            recipes.splice(index, 1);
-            renderRecipes();
-        });
-
-        li.appendChild(text);
-        li.appendChild(del);
-        recipeList.appendChild(li);
+        renderRecipes();
     });
-}
+
+    function renderRecipes() {
+        recipeList.innerHTML = "";
+
+        recipes.forEach(function (recipe, index) {
+            const li = document.createElement("li");
+
+            const text = document.createElement("span");
+            text.textContent = recipe;
+
+            const del = document.createElement("button");
+            del.textContent = "Delete";
+
+            del.addEventListener("click", function () {
+                recipes.splice(index, 1);
+                renderRecipes();
+            });
+
+            li.appendChild(text);
+            li.appendChild(del);
+            recipeList.appendChild(li);
+        });
+    }
+
+});
