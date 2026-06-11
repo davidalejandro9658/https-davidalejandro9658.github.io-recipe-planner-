@@ -1,27 +1,28 @@
-const recipeInput = document.getElementById("recipeName");
-const addBtn = document.getElementById("addRecipeBtn");
-const recipeList = document.getElementById("recipeList");
+document.addEventListener("DOMContentLoaded", function () {
 
-let recipes = [];
+    const recipeInput = document.getElementById("recipeName");
+    const addBtn = document.getElementById("addRecipeBtn");
+    const recipeList = document.getElementById("recipeList");
 
-addBtn.addEventListener("click", function () {
-    const name = recipeInput.value.trim();
+    let recipes = [];
 
-    if (name === "") return;
+    addBtn.addEventListener("click", function () {
+        const name = recipeInput.value.trim();
+        if (name === "") return;
 
-    recipes.push(name);
-
-    renderRecipes();
-
-    recipeInput.value = "";
-});
-
-function renderRecipes() {
-    recipeList.innerHTML = "";
-
-    recipes.forEach(function (recipe) {
-        const li = document.createElement("li");
-        li.textContent = recipe;
-        recipeList.appendChild(li);
+        recipes.push(name);
+        renderRecipes();
+        recipeInput.value = "";
     });
-}
+
+    function renderRecipes() {
+        recipeList.innerHTML = "";
+
+        recipes.forEach(function (recipe) {
+            const li = document.createElement("li");
+            li.textContent = recipe;
+            recipeList.appendChild(li);
+        });
+    }
+
+});
