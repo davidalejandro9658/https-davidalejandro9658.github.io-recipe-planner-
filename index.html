@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Recipe Planner</h1>
+    <p>Plan meals, organize recipes, and generate shopping lists.</p>
+</header>
+
+<main>
+
+    <section class="card">
+        <h2>Add Recipe</h2>
+
+        <input type="text" id="recipeName" placeholder="Enter recipe name">
+
+        <button id="addRecipeBtn">Add Recipe</button>
+    </section>
+
+    <section class="card">
+        <h2>Recipes</h2>
+        <ul id="recipeList">
+            <li>Chicken Stir Fry</li>
+            <li>Tacos</li>
+            <li>Pasta</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Monthly Meal Plan</h2>
+
+        <div class="meal-row">
+            <span>Chicken Stir Fry</span>
+            <input type="number" min="0" value="4">
+        </div>
+
+        <div class="meal-row">
+            <span>Tacos</span>
+            <input type="number" min="0" value="2">
+        </div>
+
+        <div class="meal-row">
+            <span>Pasta</span>
+            <input type="number" min="0" value="3">
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Shopping List</h2>
+
+        <button id="generateBtn">Generate Shopping List</button>
+
+        <ul id="shoppingList">
+            <li>Chicken - 4 lbs</li>
+            <li>Rice - 2 cups</li>
+            <li>Onions - 3</li>
+        </ul>
+    </section>
+
+</main>
+
+</body>
+</html>
